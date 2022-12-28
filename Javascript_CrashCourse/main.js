@@ -80,3 +80,7 @@ console.log(Array.isArray(fruits));
 
 // // Get index
 console.log(fruits.indexOf('oranges'));
+
+//30m ~ 
+// https://www.youtube.com/watch?v=hdI2bqOjy3c&t=18s
+ss
