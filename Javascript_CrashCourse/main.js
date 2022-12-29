@@ -173,9 +173,175 @@ const person = {
   
   // HIGH ORDER ARRAY METHODS (show prototype)
   // Suggestion way to iteration 
+  // take callback function as parameter
   // forEach, map, filter 
   
-  //////////43:00 https://www.youtube.com/watch?v=hdI2bqOjy3c&t=18s
-  ////////////
+  // forEach() - Loops through array
+  // parameter: current value(required), index, array
+  todos.forEach(function(todo, i, myTodos) {
+    console.log(`${i + 1}: ${todo.text}`);
+    console.log(myTodos);
+  });
+  
+  // map() - Loop through and create new array
+  const todoTextArray = todos.map(function(todo) {
+    return todo.text;
+  });
+  
+  console.log(todoTextArray);
+  
+  // filter() - Returns array based on condition
+  const todo1 = todos.filter(function(todo) {
+    // Return only todos where id is 1
+    return todo.id === 1; 
+  });
 
+  const todo2 = todos.filter(function(todo) {
+    // Return only todos where id is 1
+    return todo.id === 1; 
+  }).map(function(todo){
+    return todo.text;
+  });
+  
+  
+  // CONDITIONALS
+  
+  // Simple If/Else Statement
+  const x = 30;
+  const y = 10;
+  
+//   == just compare value 
+//   ex) 10 == '10' true 
+//   === compare data type 
+//   ex) 10 == '10' false
+
+  if(x === 10 || y > 10) {
+    console.log('x is 10');
+  } else if(x > 10 && y < 10) {
+    console.log('x is greater than 10');
+  } else {
+    console.log('x is less than 10')
+  }
+  
+  // Switch
+  color = 'blue';
+  
+  switch(color) {
+    case 'red':
+      console.log('color is red');
+      break;
+    case 'blue':
+      console.log('color is blue');
+      break;
+    default:  
+      console.log('color is not red or blue')
+      break;
+  }
+  
+  // Ternary operator / Shorthand if
+  const z = color === 'red' ? 10 : 20;
+  
+  
+  
+  // FUNCTIONS
+  function addNums(num1, num2){
+    console.log(num1+ num2);
+    return num1 + num2;
+  }
+
+  addNums() //return NaN
+
+  //setting up default value
+  function greet(greeting = 'Hello', name) {
+    if(!name) {
+      // console.log(greeting);
+      return greeting;
+    } else {
+      // console.log(`${greeting} ${name}`);
+      return `${greeting} ${name}`;
+    }
+  }
+  
+  
+  // ARROW FUNCTIONS
+  const greet2 = (greeting = 'Hello', name = 'There') => {
+    `${greeting} ${name}`};
+  const greet = (greeting = 'Hello', name = 'There') => `${greeting} ${name}`;
+  console.log(greet('Hi'));
+  
+  //forEach with arrow function
+  todos.forEach((todo) => console.log(todo));
+
+
+  // OOP
+  
+  // Constructor Function
+  function Person(firstName, lastName, dob) {
+    // Set object properties
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.dob = new Date(dob); // Set to actual date object using Date constructor
+    
+    // //take out of function with prototype
+    // this.getBirthYear = function(){
+    //   return this.dob.getFullYear();
+    // }
+    // this.getFullName = function() {
+    //   return `${this.firstName} ${this.lastName}`
+    // }
+  }
+  
+  // Instantiate an object from the class
+  const person1 = new Person('John', 'Doe', '7-8-80');
+  const person2 = new Person('Steve', 'Smith', '8-2-90');
+  
+  
+
+  // Get Birth Year
+  Person.prototype.getBirthYear = function () {
+    return this.dob.getFullYear();
+  }
+  
+  // Get Full Name
+  Person.prototype.getFullName = function() {
+    return `${this.firstName} ${this.lastName}`
+  }
+  
+  // console.log(person1.getBirthYear());
+  // console.log(person1.getFullName());
+
+  //return object literal with prefix, object name
+  //if no ptorytype, function is in class as attribute
+  //if protytype, functions are in proto arrtibute of class 
+  console.log(person2); 
+  
+  
+  // Built in constructors
+  const name = new String('Kevin');
+  console.log(typeof name); // Shows 'Object'
+  const num = new Number(5);
+  console.log(typeof num); // Shows 'Object'
+  
+  
+  // ES6 CLASSES
+  class Person {
+    constructor(firstName, lastName, dob) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.dob = new Date(dob);
+    }
+  
+    // Get Birth Year
+    getBirthYear() {
+      return this.dob.getFullYear();
+    }
+  
+    // Get Full Name
+    getFullName() {
+      return `${this.firstName} ${this.lastName}`
+    }
+  }
+  
+  const person1 = new Person('John', 'Doe', '7-8-80');
+  console.log(person1.getBirthYear());
   
