@@ -1,3 +1,4 @@
+import axios from 'axios';
 // AXIOS GLOBALS
 // default header
 axios.defaults.headers.common['X-Auth-Token'] = //ex. JWT from JWT.io
