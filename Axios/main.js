@@ -1,4 +1,5 @@
-import axios from 'axios';
+// import axios from 'axios';
+const axios = require('axios');
 // AXIOS GLOBALS
 // default header
 axios.defaults.headers.common['X-Auth-Token'] = //ex. JWT from JWT.io
